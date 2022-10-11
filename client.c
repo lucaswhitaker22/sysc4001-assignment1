@@ -29,8 +29,7 @@ int main()
         {
             if (read(client_fifo_fd, &my_data, sizeof(my_data)) > 0)
             {
-                printf("received
-                       : % s\n", my_data.some_data);
+                printf("received: % s\n", my_data.some_data);
             }
             close(client_fifo_fd);
         }
