@@ -16,20 +16,20 @@ int main()
     sprintf(client_fifo, CLIENT_FIFO_NAME, my_data.client_pid);
     if (mkfifo(client_fifo, 0777) == -1)
     {
-        fprintf(stderr, "Sorry, can't make % s\n", client_fifo);
+        fprintf(stderr, "Sorry, can't make %s\n", client_fifo);
         exit(EXIT_FAILURE);
     }
     for (times_to_send = 0; times_to_send < 5; times_to_send++)
     {
-        sprintf(my_data.some_data, "Hello from % d", my_data.client_pid);
-        printf("% d sent % s, ", my_data.client_pid, my_data.some_data);
+        sprintf(my_data.some_data, "Hello from %d", my_data.client_pid);
+        printf("%d sent %s, ", my_data.client_pid, my_data.some_data);
         write(server_fifo_fd, &my_data, sizeof(my_data));
         client_fifo_fd = open(client_fifo, O_RDONLY);
         if (client_fifo_fd != -1)
         {
             if (read(client_fifo_fd, &my_data, sizeof(my_data)) > 0)
             {
-                printf("received: % s\n", my_data.some_data);
+                printf("received: %s\n", my_data.some_data);
             }
             close(client_fifo_fd);
         }
