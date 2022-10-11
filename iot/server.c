@@ -9,7 +9,6 @@ int main()
     char *tmp_char_ptr;
     mkfifo(SERVER_FIFO_NAME, 0777);
     server_fifo_fd = open(SERVER_FIFO_NAME, O_RDONLY);
-
     if (server_fifo_fd == -1)
     {
         fprintf(stderr, "Server fifo failure\n");

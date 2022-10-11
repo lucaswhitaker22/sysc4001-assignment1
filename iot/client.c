@@ -1,5 +1,6 @@
 #include "client.h"
 #include <ctype.h>
+const SERVER_FIFO_NAME = 'SERVER';
 int main()
 {
     int server_fifo_fd, client_fifo_fd;
